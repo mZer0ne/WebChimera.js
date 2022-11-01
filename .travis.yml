@@ -7,7 +7,7 @@ sudo: required
 
 env:
   global:
-    - VLC_VER=3.0.11
+    - VLC_VER=3.0.17.3
     - ELECTRON_VER=latest
     - BUILD_DIR=./build/Release
 
@@ -46,5 +46,5 @@ deploy:
   skip_cleanup: true
 
   on:
-    repo: RSATom/WebChimera.js
+    repo: mZer0ne/WebChimera.js
     tags: true
