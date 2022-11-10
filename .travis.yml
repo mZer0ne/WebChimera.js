@@ -2,8 +2,11 @@ os:
 #  - linux
   - osx
 
-dist: bionic
+language: node_js
+node_js: 16.18
+
 sudo: required
+dist: bionic
 
 env:
   global:
@@ -20,6 +23,7 @@ addons:
     - libvlc-dev
 
 before_install:
+  -
   - git submodule update --init --recursive
   - ./travis_before_install.sh
   - if [[ "$npm_config_wcjs_runtime" = "electron" && "$npm_config_wcjs_runtime_version" = "latest" ]]; then export npm_config_wcjs_runtime_version=`npm show electron version`; fi
