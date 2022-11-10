@@ -2,9 +2,6 @@ os:
 #  - linux
   - osx
 
-language: node_js
-node_js: 16.18
-
 sudo: required
 dist: bionic
 
@@ -23,7 +20,6 @@ addons:
     - libvlc-dev
 
 before_install:
-  -
   - git submodule update --init --recursive
   - ./travis_before_install.sh
   - if [[ "$npm_config_wcjs_runtime" = "electron" && "$npm_config_wcjs_runtime_version" = "latest" ]]; then export npm_config_wcjs_runtime_version=`npm show electron version`; fi
@@ -33,7 +29,9 @@ before_install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then export WCJS_FULL_ARCHIVE_PATH=$BUILD_DIR/$WCJS_FULL_ARCHIVE; else export WCJS_FULL_ARCHIVE_PATH=$WCJS_ARCHIVE_PATH; fi
 
 script:
-  - npm install yarn && ./node_modules/.bin/yarn
+  - npm install
+#  - npm install yarn
+#  - ./node_modules/.bin/yarn
 
 before_deploy: ./travis_before_deploy.sh
 
