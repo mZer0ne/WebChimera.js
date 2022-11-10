@@ -1,9 +1,9 @@
 {
   "name": "webchimera.js",
-  "version": "0.5.2",
+  "version": "1.0.0",
   "private": true,
   "repository": {
-    "url": "https://github.com/RSATom/WebChimera.js",
+    "url": "https://github.com/mZer0ne/WebChimera.js",
     "type": "git"
   },
   "scripts": {
