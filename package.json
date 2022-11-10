@@ -1,30 +1,21 @@
 {
   "name": "webchimera.js",
-  "description": "libvlc binding for Electron",
   "version": "0.5.2",
-  "license": "LGPL-2.1",
-  "author": "Sergey Radionov <rsatom@gmail.com>",
-  "keywords": [
-    "vlc",
-    "libvlc",
-    "video",
-    "player",
-    "wcjs"
-  ],
+  "private": true,
   "repository": {
-    "type": "git",
-    "url": "https://github.com/RSATom/WebChimera.js"
+    "url": "https://github.com/RSATom/WebChimera.js",
+    "type": "git"
+  },
+  "scripts": {
+    "install": "node rebuild.js"
   },
   "dependencies": {
     "bindings": "~1.2.1",
     "cmake-js": "*"
   },
-  "scripts": {
-    "install": "node rebuild.js"
-  },
   "prebuilt": {
     "runtimeVersion": "12.0.9",
     "runtime": "electron",
-    "version": "v0.5.2"
+    "version": "x64"
   }
 }

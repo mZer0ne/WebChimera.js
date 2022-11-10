@@ -23,7 +23,6 @@ before_install:
   - git submodule update --init --recursive
   - ./travis_before_install.sh
   - if [[ "$npm_config_wcjs_runtime" = "electron" && "$npm_config_wcjs_runtime_version" = "latest" ]]; then export npm_config_wcjs_runtime_version=`npm show electron version`; fi
-  - if [[ "$npm_config_wcjs_runtime" = "nw" && "$npm_config_wcjs_runtime_version" = "latest" ]]; then export npm_config_wcjs_runtime_version=`npm show nw version`; fi
   - export WCJS_ARCHIVE=WebChimera.js_${npm_config_wcjs_runtime}_${npm_config_wcjs_runtime_version}_${npm_config_wcjs_arch}_${TRAVIS_OS_NAME}.zip
   - export WCJS_ARCHIVE_PATH=$BUILD_DIR/$WCJS_ARCHIVE
   - export WCJS_FULL_ARCHIVE=WebChimera.js_${TRAVIS_TAG}_${npm_config_wcjs_runtime}_v${npm_config_wcjs_runtime_version}_VLC_v${VLC_VER}_${npm_config_wcjs_arch}_${TRAVIS_OS_NAME}.tar.gz

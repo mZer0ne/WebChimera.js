@@ -1,38 +1,22 @@
-const pkg = require("./package.json");
+
 
 function build() {
-    var cmakeJS = require("cmake-js");
+    let pkg = require("./package.json");
+    let cmakeJS = require("cmake-js");
 
-    var defaultRuntime = "nw";
-    var defaultRuntimeVersion = "0.12.3";
-    var defaultWinArch = "ia32";
 
-    var options = {
-        runtimeVersion: pkg.prebuilt.runtimeVersion || undefined,
-        runtime: pkg.prebuilt.runtime || undefined,
-        arch: pkg.prebuilt.version || undefined
-    };
-
-    var buildSystem = new cmakeJS.BuildSystem(options);
-
-    if (buildSystem.options.runtime == undefined) {
-        buildSystem.options.runtime = defaultRuntime;
-    }
-
-    if (buildSystem.options.runtimeVersion == undefined) {
-        buildSystem.options.runtimeVersion = defaultRuntimeVersion;
-    }
-
-    if (buildSystem.options.arch == undefined && process.platform == "win32") {
-        buildSystem.options.arch = defaultWinArch;
-    }
+    let buildSystem = new cmakeJS.BuildSystem({
+        runtimeVersion: pkg.prebuilt.runtimeVersion,
+        runtime: pkg.prebuilt.runtime,
+        arch: pkg.prebuilt.version
+    });
 
     buildSystem.rebuild().catch(function () {
         process.exit(1);
     });
 }
 
-var times = 0;
+let times = 0;
 
 function begin() {
     try {
