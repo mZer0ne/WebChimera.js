@@ -1,6 +1,6 @@
 os:
-  - osx
   - linux
+  - osx
 
 dist: bionic
 sudo: required
@@ -12,9 +12,7 @@ env:
     - VLC_VER=3.0.17.3
 
   matrix:
-    - npm_config_wcjs_runtime_version=$ELECTRON_VER
-    - npm_config_wcjs_runtime=electron
-    - npm_config_wcjs_arch=x64
+    - npm_config_wcjs_runtime_version=$ELECTRON_VER npm_config_wcjs_runtime=electron npm_config_wcjs_arch=x64
 
 addons:
   apt:
