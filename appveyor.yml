@@ -25,8 +25,7 @@ artifacts:
 deploy:
   provider: GitHub
 
-  auth_token:
-    secure: v/U02/uDNhEdQDyXEYl0uSrLWW5kgwdlAL3+vRNvpieXk1FMiXF95KpBz5/H4IqP
+  auth_token: $GITHUB_TOKEN
 
   tag: $(APPVEYOR_REPO_TAG_NAME)
 
