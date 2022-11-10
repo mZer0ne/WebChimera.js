@@ -6,7 +6,7 @@ then
 fi
 
 if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-  curl -L -o ./deps/vlc-$VLC_VER-intel64.dmg https://get.videolan.org/vlc/$VLC_VER/macosx/vlc-$VLC_VER-intel64.dmg
+  curl -L -o ./deps/vlc-$VLC_VER-intel64.dmg https://get.videolan.org/vlc/$VLC_VER/macosx/vlc-$VLC_VER-intel64.dmg --insecure
   hdiutil mount ./deps/vlc-$VLC_VER-intel64.dmg
   cp -R "/Volumes/VLC media player/VLC.app" ./deps
 fi
