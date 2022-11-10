@@ -1,3 +1,5 @@
+const pkg = require("./package.json");
+
 function build() {
     var cmakeJS = require("cmake-js");
 
@@ -6,9 +8,9 @@ function build() {
     var defaultWinArch = "ia32";
 
     var options = {
-        runtime: process.env.npm_config_wcjs_runtime || undefined,
-        runtimeVersion: process.env.npm_config_wcjs_runtime_version || undefined,
-        arch: process.env.npm_config_wcjs_arch || undefined
+        runtimeVersion: pkg.prebuilt.runtimeVersion || undefined,
+        runtime: pkg.prebuilt.runtime || undefined,
+        arch: pkg.prebuilt.version || undefined
     };
 
     var buildSystem = new cmakeJS.BuildSystem(options);
