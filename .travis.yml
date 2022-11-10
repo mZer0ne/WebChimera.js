@@ -1,5 +1,5 @@
 os:
-#  - linux
+  - linux
   - osx
 
 sudo: required
@@ -37,7 +37,7 @@ before_deploy: ./travis_before_deploy.sh
 
 deploy:
   provider: releases
-  api_key: "5d50e1f94f5403c86894728bb0a1f2137b362ae1"
+  api_key: $GITHUB_TOKEN
 
   file:
     - $WCJS_FULL_ARCHIVE_PATH
