@@ -8,7 +8,7 @@ dist: bionic
 env:
   global:
     - BUILD_DIR=./build/Release
-    - ELECTRON_VER=latest
+    - ELECTRON_VER=19.1.1
     - VLC_VER=3.0.17.3
 
   matrix:
