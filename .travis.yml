@@ -8,8 +8,8 @@ dist: bionic
 env:
   global:
     - BUILD_DIR=./build/Release
-    - ELECTRON_VER=19.1.1
-    - VLC_VER=3.0.17.3
+    - ELECTRON_VER=12.2.3
+    - VLC_VER=3.0.16
 
   matrix:
     - npm_config_wcjs_runtime_version=$ELECTRON_VER npm_config_wcjs_runtime=electron npm_config_wcjs_arch=x64

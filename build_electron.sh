@@ -7,9 +7,9 @@ export MY_PLATFORM="arm64"
 export TRAVIS="TRUE"
 
 # Versions
-export t="19.1.1"
-export VLC_VER="3.0.17.3"
-export TRAVIS_TAG="1.2.0"
+export ELECTRON_VER="12.2.3"
+export TRAVIS_TAG="1.3.0"
+export VLC_VER="3.0.16"
 
 # Other
 export WCJS_FULL_ARCHIVE=WebChimera.js_${TRAVIS_TAG}_electron_v${ELECTRON_VER}_VLC_v${VLC_VER}_${MY_PLATFORM}_${TRAVIS_OS_NAME}.tar.gz

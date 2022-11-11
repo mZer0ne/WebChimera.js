@@ -14,7 +14,7 @@
     "cmake-js": "^6.3.2"
   },
   "prebuilt": {
-    "runtimeVersion": "19.1.1",
+    "runtimeVersion": "12.2.3",
     "runtime": "electron",
     "version": "x64"
   }
