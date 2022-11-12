@@ -62,7 +62,7 @@ jobs:
           yarn
       - name: Build
         run: |
-          node16 rebuild.js
+          node rebuild.js
         env:
           BUILD_DIR: "./build/Release"
       - name: Upload build artifact
