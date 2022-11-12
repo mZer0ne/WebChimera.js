@@ -70,4 +70,4 @@ jobs:
         with:
           name: ${{ matrix.target }}-node
           path: |
-            ./build/Release/WebChimera.js.node
+            ./build/Release/
