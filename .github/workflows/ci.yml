@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [16]
         target:
           - x86_64-windows
           - x86_64-linux
@@ -27,6 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          node-version: ${{ matrix.node-version }}
           submodules: "recursive"
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -68,6 +69,7 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
+          node-version: ${{ matrix.node-version }}
           name: ${{ matrix.target }}-node
           path: |
             ./build/Release/
