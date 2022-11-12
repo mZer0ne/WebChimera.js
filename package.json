@@ -6,9 +6,6 @@
     "url": "https://github.com/mZer0ne/WebChimera.js",
     "type": "git"
   },
-  "scripts": {
-    "install": "node rebuild.js"
-  },
   "dependencies": {
     "bindings": "~1.2.1",
     "cmake-js": "^6.3.2"
