@@ -45,7 +45,7 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          Invoke-WebRequest -Uri 'http://download.videolan.org/pub/videolan/vlc/2.2.8/win64/vlc-2.2.8-win64.zip' -OutFile 'libvlc.zip'
+          Invoke-WebRequest -Uri 'http://download.videolan.org/pub/videolan/vlc/2.1.0/win64/vlc-2.1.0-win64.zip' -OutFile 'libvlc.zip'
           Expand-Archive -Path '.\libvlc.zip' -DestinationPath . -Force
           Remove-Item '.\libvlc.zip'
 #       - name: Install VLC (Linux)
