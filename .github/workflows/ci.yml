@@ -17,8 +17,8 @@ jobs:
         include:
           - target: x86_64-windows
             os: windows-2019
-          - target: x86_64-linux
-            os: ubuntu-20.04
+#           - target: x86_64-linux
+#             os: ubuntu-20.04
           - target: x86_64-osx
             os: macos-12
 
