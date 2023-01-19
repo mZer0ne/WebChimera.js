@@ -45,7 +45,7 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          Invoke-WebRequest -Uri 'https://github.com/vivid-lapin/vlc-miraktest/releases/download/3.0.16.3/vlc-windows-3.0.16.zip' -OutFile 'libvlc.zip'
+          Invoke-WebRequest -Uri 'http://download.videolan.org/pub/videolan/vlc/2.2.8/win64/vlc-2.2.8-win64.zip' -OutFile 'libvlc.zip'
           Expand-Archive -Path '.\libvlc.zip' -DestinationPath . -Force
           Remove-Item '.\libvlc.zip'
       - name: Install VLC (Linux)
@@ -54,7 +54,7 @@ jobs:
       - name: Install VLC (mac)
         if: steps.vlc-cache.outputs.cache-hit != 'true' && runner.os == 'macOS'
         run: |
-          wget -q https://github.com/vivid-lapin/vlc-miraktest/releases/download/3.0.17.2/vlc-3.0.17.2-x86_64.dmg -O /tmp/vlc.dmg
+          wget -q http://download.videolan.org/pub/videolan/vlc/2.2.8/macosx/vlc-2.2.8.dmg -O /tmp/vlc.dmg
           hdiutil mount /tmp/vlc.dmg
           cp -R '/Volumes/VLC media player/VLC.app' ./deps
           mkdir ./build/Release/webchimera.js
