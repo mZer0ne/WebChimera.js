@@ -56,7 +56,7 @@ jobs:
         run: |
           wget -q http://download.videolan.org/pub/videolan/vlc/2.2.8/macosx/vlc-2.2.8.dmg -O /tmp/vlc.dmg
           hdiutil mount /tmp/vlc.dmg
-          cp -R '/Volumes/VLC media player/VLC.app' ./deps
+          cp -R '/Volumes/vlc-2.2.8/VLC.app' ./deps
           mkdir ./build/Release/webchimera.js
           cp -f ./build/Release/WebChimera.js.node ./build/Release/webchimera.js
           echo "module.exports = require('./WebChimera.js.node')" > ./build/Release/webchimera.js/index.js
