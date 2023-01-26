@@ -15,13 +15,10 @@ jobs:
         node-version: [16]
         target:
           - x86_64-windows
-#           - x86_64-linux
           - x86_64-osx
         include:
           - target: x86_64-windows
             os: windows-2019
-#           - target: x86_64-linux
-#             os: ubuntu-20.04
           - target: x86_64-osx
             os: macos-12
 
@@ -51,17 +48,13 @@ jobs:
           Invoke-WebRequest -Uri 'http://download.videolan.org/pub/videolan/vlc/${{env.VLC_VERSION}}/win64/vlc-${{env.VLC_VERSION}}-win64.zip' -OutFile 'libvlc.zip'
           Expand-Archive -Path '.\libvlc.zip' -DestinationPath . -Force
           Remove-Item '.\libvlc.zip'
-#       - name: Install VLC (Linux)
-#         if: runner.os == 'Linux'
-#         run: sudo apt-get install cmake=3.16.3-1ubuntu1 libvlc-dev=3.0.9.2-1
       - name: Install VLC (mac)
         if: steps.vlc-cache.outputs.cache-hit != 'true' && runner.os == 'macOS'
         run: |
           wget -q http://download.videolan.org/pub/videolan/vlc/${{env.VLC_VERSION}}/macosx/vlc-${{env.VLC_VERSION}}.dmg -O /tmp/vlc.dmg
           hdiutil mount /tmp/vlc.dmg
           cp -R '/Volumes/vlc-${{env.VLC_VERSION}}/VLC.app' ./deps
-          mkdir ./build/Release
-          mkdir ./build/Release/webchimera.js
+          mkdir -p ./build/Release/webchimera.js
           cp -f ./build/Release/WebChimera.js.node ./build/Release/webchimera.js
           echo "module.exports = require('./WebChimera.js.node')" > ./build/Release/webchimera.js/index.js
           mkdir ./build/Release/webchimera.js/lib
