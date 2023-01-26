@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+env:
+  VLC_VERSION: Monday
+
 jobs:
   build:
     strategy:
@@ -45,7 +48,7 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          Invoke-WebRequest -Uri 'http://download.videolan.org/pub/videolan/vlc/2.1.0/win64/vlc-2.1.0-win64.zip' -OutFile 'libvlc.zip'
+          Invoke-WebRequest -Uri 'http://download.videolan.org/pub/videolan/vlc/${{env.VLC_VERSION}}/win64/vlc-${{env.VLC_VERSION}}-win64.zip' -OutFile 'libvlc.zip'
           Expand-Archive -Path '.\libvlc.zip' -DestinationPath . -Force
           Remove-Item '.\libvlc.zip'
 #       - name: Install VLC (Linux)
@@ -54,9 +57,9 @@ jobs:
       - name: Install VLC (mac)
         if: steps.vlc-cache.outputs.cache-hit != 'true' && runner.os == 'macOS'
         run: |
-          wget -q http://download.videolan.org/pub/videolan/vlc/2.2.8/macosx/vlc-2.2.8.dmg -O /tmp/vlc.dmg
+          wget -q http://download.videolan.org/pub/videolan/vlc/${{env.VLC_VERSION}}/macosx/vlc-${{env.VLC_VERSION}}.dmg -O /tmp/vlc.dmg
           hdiutil mount /tmp/vlc.dmg
-          cp -R '/Volumes/vlc-2.2.8/VLC.app' ./deps
+          cp -R '/Volumes/vlc-${{env.VLC_VERSION}}/VLC.app' ./deps
           mkdir ./build/Release/webchimera.js
           cp -f ./build/Release/WebChimera.js.node ./build/Release/webchimera.js
           echo "module.exports = require('./WebChimera.js.node')" > ./build/Release/webchimera.js/index.js
