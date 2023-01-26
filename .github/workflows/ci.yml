@@ -13,14 +13,14 @@ jobs:
         target:
           - x86_64-windows
 #           - x86_64-linux
-#           - x86_64-osx
+          - x86_64-osx
         include:
           - target: x86_64-windows
             os: windows-2019
 #           - target: x86_64-linux
-# #             os: ubuntu-20.04
-#           - target: x86_64-osx
-#             os: macos-12
+#             os: ubuntu-20.04
+          - target: x86_64-osx
+            os: macos-12
 
     runs-on: ${{ matrix.os }}
 
@@ -51,27 +51,27 @@ jobs:
 #       - name: Install VLC (Linux)
 #         if: runner.os == 'Linux'
 #         run: sudo apt-get install cmake=3.16.3-1ubuntu1 libvlc-dev=3.0.9.2-1
-#       - name: Install VLC (mac)
-#         if: steps.vlc-cache.outputs.cache-hit != 'true' && runner.os == 'macOS'
-#         run: |
-#           wget -q http://download.videolan.org/pub/videolan/vlc/2.2.8/macosx/vlc-2.2.8.dmg -O /tmp/vlc.dmg
-#           hdiutil mount /tmp/vlc.dmg
-#           cp -R '/Volumes/VLC media player/VLC.app' ./deps
-#           mkdir ./build/Release/webchimera.js
-#           cp -f ./build/Release/WebChimera.js.node ./build/Release/webchimera.js
-#           echo "module.exports = require('./WebChimera.js.node')" > ./build/Release/webchimera.js/index.js
-#           mkdir ./build/Release/webchimera.js/lib
-#           cp -R $VLC_APP/Contents/MacOS/lib/*.dylib ./build/Release/webchimera.js/lib
-#           mkdir -p ./build/Release/webchimera.js/lib/vlc
-#           cp -R $VLC_APP/Contents/MacOS/plugins ./build/Release/webchimera.js/lib/vlc
-#           mkdir -p ./build/Release/webchimera.js/lib/vlc/share/lua
-#           cp -R $VLC_APP/Contents/MacOS/share/lua/extensions ./build/Release/webchimera.js/lib/vlc/share/lua
-#           cp -R $VLC_APP/Contents/MacOS/share/lua/modules ./build/Release/webchimera.js/lib/vlc/share/lua
-#           cp -R $VLC_APP/Contents/MacOS/share/lua/playlist ./build/Release/webchimera.js/lib/vlc/share/lua
-#           mkdir -p ./build/Release/webchimera.js/lib/vlc/lib
-#           ln -sf ../../libvlccore.9.dylib ./build/Release/webchimera.js/lib/vlc/lib/libvlccore.9.dylib
-#           tar -cvzf $WCJS_FULL_ARCHIVE_PATH -C ./build/Release webchimera.js
-#           rm -rf ./build/Release/webchimera.js
+      - name: Install VLC (mac)
+        if: steps.vlc-cache.outputs.cache-hit != 'true' && runner.os == 'macOS'
+        run: |
+          wget -q http://download.videolan.org/pub/videolan/vlc/2.2.8/macosx/vlc-2.2.8.dmg -O /tmp/vlc.dmg
+          hdiutil mount /tmp/vlc.dmg
+          cp -R '/Volumes/VLC media player/VLC.app' ./deps
+          mkdir ./build/Release/webchimera.js
+          cp -f ./build/Release/WebChimera.js.node ./build/Release/webchimera.js
+          echo "module.exports = require('./WebChimera.js.node')" > ./build/Release/webchimera.js/index.js
+          mkdir ./build/Release/webchimera.js/lib
+          cp -R $VLC_APP/Contents/MacOS/lib/*.dylib ./build/Release/webchimera.js/lib
+          mkdir -p ./build/Release/webchimera.js/lib/vlc
+          cp -R $VLC_APP/Contents/MacOS/plugins ./build/Release/webchimera.js/lib/vlc
+          mkdir -p ./build/Release/webchimera.js/lib/vlc/share/lua
+          cp -R $VLC_APP/Contents/MacOS/share/lua/extensions ./build/Release/webchimera.js/lib/vlc/share/lua
+          cp -R $VLC_APP/Contents/MacOS/share/lua/modules ./build/Release/webchimera.js/lib/vlc/share/lua
+          cp -R $VLC_APP/Contents/MacOS/share/lua/playlist ./build/Release/webchimera.js/lib/vlc/share/lua
+          mkdir -p ./build/Release/webchimera.js/lib/vlc/lib
+          ln -sf ../../libvlccore.9.dylib ./build/Release/webchimera.js/lib/vlc/lib/libvlccore.9.dylib
+          tar -cvzf $WCJS_FULL_ARCHIVE_PATH -C ./build/Release webchimera.js
+          rm -rf ./build/Release/webchimera.js
       - name: Install
         run: |
           yarn
