@@ -60,7 +60,6 @@ jobs:
           wget -q http://download.videolan.org/pub/videolan/vlc/${{env.VLC_VERSION}}/macosx/vlc-${{env.VLC_VERSION}}.dmg -O /tmp/vlc.dmg
           hdiutil mount /tmp/vlc.dmg
           cp -R '/Volumes/vlc-${{env.VLC_VERSION}}/VLC.app' ./deps
-          mkdir ./build
           mkdir ./build/Release
           mkdir ./build/Release/webchimera.js
           cp -f ./build/Release/WebChimera.js.node ./build/Release/webchimera.js
