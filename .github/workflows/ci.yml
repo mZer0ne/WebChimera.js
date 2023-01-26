@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  VLC_VERSION: Monday
+  VLC_VERSION: 2.2.8
 
 jobs:
   build:
