@@ -15,12 +15,12 @@ jobs:
         node-version: [16]
         target:
           - x86_64-windows
-          - x86_64-osx
+#          - x86_64-osx
         include:
           - target: x86_64-windows
             os: windows-2019
-          - target: x86_64-osx
-            os: macos-12
+#          - target: x86_64-osx
+#            os: macos-12
 
     runs-on: ${{ matrix.os }}
 
