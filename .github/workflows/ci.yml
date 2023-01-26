@@ -69,7 +69,7 @@ jobs:
           cp -R $VLC_APP/Contents/MacOS/share/lua/modules ./build/Release/webchimera.js/lib/vlc/share/lua
           cp -R $VLC_APP/Contents/MacOS/share/lua/playlist ./build/Release/webchimera.js/lib/vlc/share/lua
           mkdir -p ./build/Release/webchimera.js/lib/vlc/lib
-          ln -sf ../../libvlccore.9.dylib ./build/Release/webchimera.js/lib/vlc/lib/libvlccore.9.dylib
+          ln -sf ../../libvlccore.8.dylib ./build/Release/webchimera.js/lib/vlc/lib/libvlccore.8.dylib
           tar -cvzf $WCJS_FULL_ARCHIVE_PATH -C ./build/Release webchimera.js
           rm -rf ./build/Release/webchimera.js
       - name: Install
