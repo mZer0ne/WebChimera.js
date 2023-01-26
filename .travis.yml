@@ -9,7 +9,7 @@ env:
   global:
     - BUILD_DIR=./build/Release
     - ELECTRON_VER=12.2.3
-    - VLC_VER=3.0.16
+    - VLC_VER=2.8.8.
 
   matrix:
     - npm_config_wcjs_runtime_version=$ELECTRON_VER npm_config_wcjs_runtime=electron npm_config_wcjs_arch=x64
